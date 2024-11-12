@@ -53,11 +53,27 @@ router.get('/players/:id', readPlayer);
 router.put('/players/:id', updatePlayer);
 router.post('/players', createPlayer);
 router.delete('/players/:id', deletePlayer);
+router.get('/players/games', readPlayersWithGames);
 
 app.use(router);
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
 // Implement the CRUD operations.
+
+function readPlayersWithGames(req, res, next) {
+  db.many(`
+    SELECT Player.id AS playerId, Player.name AS playerName, Game.id AS gameId, Game.title AS gameTitle
+    FROM Player
+    JOIN PlayerGame ON Player.id = PlayerGame.playerId
+    JOIN Game ON PlayerGame.gameId = Game.id
+  `)
+  .then((data) => {
+    res.send(data);
+  })
+  .catch((err) => {
+    next(err);
+  })
+}
 
 function returnDataOr404(res, data) {
   if (data == null) {
