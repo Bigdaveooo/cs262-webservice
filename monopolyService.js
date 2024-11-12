@@ -63,9 +63,9 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 function readPlayersWithGames(req, res, next) {
   db.many(`
     SELECT 
-      Player.id AS playerId, 
+      Player.ID AS playerID, 
       Player.name AS playerName, 
-      Game.id AS gameId, 
+      Game.ID AS gameID, 
       Game.time AS gameTime
       PlayerGameLocation.cash AS playerCash
     FROM Player
@@ -76,8 +76,7 @@ function readPlayersWithGames(req, res, next) {
     res.send(data);
   })
   .catch((err) => {
-    console.error("Error fetching data:", err);
-    res.status(500).send("I.S.E");
+    next(err);
   });
 }
 
