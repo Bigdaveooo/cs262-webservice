@@ -64,8 +64,8 @@ function readPlayersWithGames(req, res, next) {
   db.many(`
     SELECT Player.id AS playerId, Player.name AS playerName, Game.id AS gameId, Game.title AS gameTitle
     FROM Player
-    JOIN PlayerGame ON Player.id = PlayerGame.playerId
-    JOIN Game ON PlayerGame.gameId = Game.id
+    JOIN PlayerGameLocation ON Player.id = PlayerGameLocation.playerId
+    JOIN Game ON PlayerGameLocation.gameId = Game.id
   `)
   .then((data) => {
     res.send(data);
