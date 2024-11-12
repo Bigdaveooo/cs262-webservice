@@ -62,17 +62,23 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 function readPlayersWithGames(req, res, next) {
   db.many(`
-    SELECT Player.id AS playerId, Player.name AS playerName, Game.id AS gameId, Game.time AS gameTime
+    SELECT 
+      Player.id AS playerId, 
+      Player.name AS playerName, 
+      Game.id AS gameId, 
+      Game.time AS gameTime
+      PlayerGameLocation.cash AS playerCash
     FROM Player
-    JOIN PlayerGameLocation ON Player.id = PlayerGameLocation.playerId
-    JOIN Game ON PlayerGameLocation.gameId = Game.id
+    JOIN PlayerGameLocation ON Player.ID = PlayerGameLocation.playerID
+    JOIN Game ON PlayerGameLocation.gameID = Game.ID
   `)
   .then((data) => {
     res.send(data);
   })
   .catch((err) => {
-    next(err);
-  })
+    console.error("Error fetching data:", err);
+    res.status(500).send("I.S.E");
+  });
 }
 
 function returnDataOr404(res, data) {
