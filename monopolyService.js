@@ -53,7 +53,7 @@ router.get('/players/:id', readPlayer);
 router.put('/players/:id', updatePlayer);
 router.post('/players', createPlayer);
 router.delete('/players/:id', deletePlayer);
-router.get('/players/games', readPlayersWithGames);
+router.get('/games', readPlayersWithGames);
 
 app.use(router);
 app.listen(port, () => console.log(`Listening on port ${port}`));
