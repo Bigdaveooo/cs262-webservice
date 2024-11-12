@@ -1,5 +1,5 @@
 # cs262-webservice
-monopoly service repo
+monopoly service repo, working
 
 cs262webapp-dab37-dygqgfg0cheqfjay.eastus2-01.azurewebsites.net
 cs262webapp-dab37-dygqgfg0cheqfjay.eastus2-01.azurewebsites.net/players
