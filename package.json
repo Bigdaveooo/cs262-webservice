@@ -1,0 +1,24 @@
+{
+  "name": "cs262-webservice",
+  "version": "1.0.0",
+  "description": "monopoly service repo",
+  "main": "monopolyService.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bigdaveooo/cs262-webservice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bigdaveooo/cs262-webservice/issues"
+  },
+  "homepage": "https://github.com/Bigdaveooo/cs262-webservice#readme",
+  "dependencies": {
+    "express": "^4.21.1",
+    "pg-promise": "^11.10.2"
+  }
+}
