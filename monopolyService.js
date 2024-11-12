@@ -67,10 +67,9 @@ function readPlayersWithGames(req, res, next) {
       Player.name AS playerName, 
       Game.ID AS gameID, 
       Game.time AS gameTime
-      PlayerGameLocation.cash AS playerCash
     FROM Player
     JOIN PlayerGameLocation ON Player.ID = PlayerGameLocation.playerID
-    JOIN Game ON PlayerGameLocation.gameID = Game.ID
+    JOIN Game ON PlayerGameLocation.gameID = Game.ID;
   `)
   .then((data) => {
     res.send(data);
