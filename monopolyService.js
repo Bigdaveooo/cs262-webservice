@@ -69,7 +69,7 @@ function readPlayersWithGames(req, res, next) {
       Game.time AS gameTime
     FROM Player
     JOIN PlayerGameLocation ON Player.ID = PlayerGameLocation.playerID
-    JOIN Game ON PlayerGameLocation.gameID = Game.ID;
+    JOIN Game ON PlayerGameLocation.gameID = Game.ID
   `)
   .then((data) => {
     res.send(data);
