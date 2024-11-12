@@ -62,7 +62,7 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 function readPlayersWithGames(req, res, next) {
   db.many(`
-    SELECT Player.id AS playerId, Player.name AS playerName, Game.id AS gameId, Game.title AS gameTitle
+    SELECT Player.id AS playerId, Player.name AS playerName, Game.id AS gameId, Game.time AS gameTime
     FROM Player
     JOIN PlayerGameLocation ON Player.id = PlayerGameLocation.playerId
     JOIN Game ON PlayerGameLocation.gameId = Game.id
